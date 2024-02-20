@@ -5,13 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// Renderizar la aplicación sin StrictMode en desarrollo
+if (process.env.NODE_ENV === 'development') {
+  root.render(
+    <App />
+  );
+} else {
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+}
+
+// Si quieres empezar a medir el rendimiento de tu aplicación, pasa una función
+// para registrar resultados (por ejemplo: reportWebVitals(console.log))
+// o envía a un punto de análisis. Aprende más en: https://bit.ly/CRA-vitals
 reportWebVitals();
